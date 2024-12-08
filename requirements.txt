@@ -1,0 +1,7 @@
+Django
+djangorestframework
+django-cors-headers
+celery
+rabbitmq
+drf-yasg
+python-dotenv
