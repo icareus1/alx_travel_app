@@ -29,7 +29,9 @@ SECRET_KEY = 'django-insecure-^rq^0kv%k$tp5a@nisn21k%yd8#zn7kndjp5#7*j!+j-m&o8yt
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    "127.0.0.1",
+]
 
 
 # Application definition
@@ -48,7 +50,7 @@ INSTALLED_APPS = [
     "corsheaders",
     "storages",
     "django_celery_beat",
-
+    'drf_spectacular',
 ]
 
 MIDDLEWARE = [
@@ -100,7 +102,21 @@ DATABASES = {
     }
 }
 
+# Configure DRF settings
+REST_FRAMEWORK = {
+    'DEFAULT_SCHEMA_CLASS': 'drf_spectacular.openapi.AutoSchema',  # Use drf-spectacular for schema generation
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework.authentication.TokenAuthentication',  # Token Authentication
+        'rest_framework.authentication.SessionAuthentication',  # Optionally include Session Authentication
+    ],
+}
 
+SPECTACULAR_SETTINGS = {
+    'TITLE': 'API Documentation',
+    'DESCRIPTION': 'This is the API documentation for our project.',
+    'VERSION': '1.0.0',
+    'SERVE_INCLUDE_SCHEMA': False,  # Avoid serving schema at `/schema/`
+}
 
 # Password validation
 # https://docs.djangoproject.com/en/5.0/ref/settings/#auth-password-validators

@@ -5,3 +5,4 @@ celery
 rabbitmq
 drf-yasg
 python-dotenv
+drf-spectacular
