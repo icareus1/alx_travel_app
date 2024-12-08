@@ -46,7 +46,7 @@ INSTALLED_APPS = [
     "rest_framework",
     'rest_framework.authtoken',
     'drf_yasg',
-    'listings',
+    'alx_travel_app.listings',
     "corsheaders",
     "storages",
     "django_celery_beat",

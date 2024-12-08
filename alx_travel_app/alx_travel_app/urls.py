@@ -22,5 +22,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/schema/', SpectacularAPIView.as_view(), name='schema'),  # Schema generation endpoint
     path('docs/', SpectacularSwaggerView.as_view(url_name='schema'), name='swagger-ui'),  # Swagger UI
-    path('listings/', include('listings.urls')),  # Include app-specific routes
+    path('listings/', include('alx_travel_app.listings.urls')),  # Include app-specific routes
 ]
